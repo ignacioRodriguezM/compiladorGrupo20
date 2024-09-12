@@ -399,8 +399,10 @@ void ErrorSintactico()
 void Generar(char * co, char * a, char * b, char * c)
 {
  /* Produce la salida de la instruccion para la MV por stdout */
-
- printf("%s %s%c%s%c%s\n", co, a, ',', b, ',', c);
+    if (strcmp(a, "") == 0 && strcmp(b, "") == 0 && strcmp(c, "") == 0)
+        printf("%s\n", co);
+    else
+        printf("%s %s,%s,%s\n", co, a, b, c);
 }
 
 char * Extraer(REG_EXPRESION * preg)
